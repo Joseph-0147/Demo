@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Small Scale Smart Packaging</title>
+</head>
+<body>
+    <h1>Small Scale Smart Packaging</h1>
+    <form action="/submit_small_scale" method="post">
+        <label for="amount">Amount (in units):</label>
+        <input type="number" id="amount" name="amount" required><br><br>
+
+        <label for="size">Size (in grams or ml):</label>
+        <input type="text" id="size" name="size" required><br><br>
+
+        <label for="conditions">Conditions for Preservation:</label>
+        <input type="text" id="conditions" name="conditions" required><br><br>
+
+        <label for="configurations">Configurations (e.g. dozen):</label>
+        <input type="text" id="configurations" name="configurations" required><br><br>
+
+        <label for="features">Choose Features:</label><br>
+        <input type="checkbox" id="tracking" name="features" value="tracking">
+        <label for="tracking">Tracking</label><br>
+        <input type="checkbox" id="qr_code" name="features" value="qr_code">
+        <label for="qr_code">QR Code</label><br>
+        <input type="checkbox" id="nfc" name="features" value="nfc">
+        <label for="nfc">NFC</label><br>
+        <input type="checkbox" id="refrigeration" name="features" value="refrigeration">
+        <label for="refrigeration">Refrigeration</label><br>
+        <input type="checkbox" id="moisture_sensor" name="features" value="moisture_sensor">
+        <label for="moisture_sensor">Moisture Sensor</label><br>
+        <input type="checkbox" id="temperature_sensor" name="features" value="temperature_sensor">
+        <label for="temperature_sensor">Temperature Sensor</label><br>
+        <input type="checkbox" id="freshness_indicator" name="features" value="freshness_indicator">
+        <label for="freshness_indicator">Freshness Indicator</label><br><br>
+
+        <p>Choose one:</p>
+        <input type="radio" id="cost" name="choice" value="cost" required>
+        <label for="cost">Cost</label><br>
+        <input type="radio" id="sustainability" name="choice" value="sustainability" required>
+        <label for="sustainability">Sustainability</label><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

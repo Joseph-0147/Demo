@@ -1,0 +1,67 @@
+CREATE DATABASE SmartPackaging;
+
+USE SmartPackaging;
+
+-- Table to store food information
+CREATE TABLE Food (
+    food_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    amount INT NOT NULL,
+    size VARCHAR(50) NOT NULL,
+    configurations VARCHAR(50) NOT NULL
+);
+
+-- Table to store conditions for preservation
+CREATE TABLE Conditions (
+    condition_id INT AUTO_INCREMENT PRIMARY KEY,
+    food_id INT,
+    condition_description VARCHAR(255) NOT NULL,
+    FOREIGN KEY (food_id) REFERENCES Food(food_id)
+);
+
+-- Table to store smart packaging features
+CREATE TABLE Smart_Packaging_Features (
+    feature_id INT AUTO_INCREMENT PRIMARY KEY,
+    feature_name VARCHAR(50) NOT NULL
+);
+
+-- Table to store packaging options, including cost and sustainability
+CREATE TABLE Packaging_Options (
+    option_id INT AUTO_INCREMENT PRIMARY KEY,
+    food_id INT,
+    cost DECIMAL(10, 2) NOT NULL,
+    sustainability_score DECIMAL(5, 2) NOT NULL,
+    feature_id INT,
+    FOREIGN KEY (food_id) REFERENCES Food(food_id),
+    FOREIGN KEY (feature_id) REFERENCES Smart_Packaging_Features(feature_id)
+);
+
+-- Table to store truck type options
+CREATE TABLE Truck_Type (
+    truck_id INT AUTO_INCREMENT PRIMARY KEY,
+    truck_type VARCHAR(50) NOT NULL
+);
+
+-- Table to map food items to truck types
+CREATE TABLE Food_Truck (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    food_id INT,
+    truck_id INT,
+    FOREIGN KEY (food_id) REFERENCES Food(food_id),
+    FOREIGN KEY (truck_id) REFERENCES Truck_Type(truck_id)
+);
+
+-- Inserting sample data for features
+INSERT INTO Smart_Packaging_Features (feature_name) VALUES
+('Tracking'),
+('QR Code'),
+('NFC'),
+('Refrigeration'),
+('Moisture Sensor'),
+('Temperature Sensor'),
+('Freshness Indicator');
+
+-- Inserting sample data for truck types
+INSERT INTO Truck_Type (truck_type) VALUES
+('Refrigerated'),
+('Non-Refrigerated');

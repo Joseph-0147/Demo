@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transit Smart Packaging</title>
+</head>
+<body>
+    <h1>Transit Smart Packaging</h1>
+    <form action="/submit_transit" method="post">
+        <label for="amount">Amount (in units):</label>
+        <input type="number" id="amount" name="amount" required><br><br>
+
+        <label for="size">Size (in grams or ml):</label>
+        <input type="text" id="size" name="size" required><br><br>
+
+        <label for="conditions">Conditions for Preservation:</label><br>
+        <input type="checkbox" id="temperature" name="conditions" value="temperature">
+        <label for="temperature">Temperature</label>
+        <input type="text" id="temperature_input" name="temperature_input" placeholder="°C"><br>
+        <input type="checkbox" id="humidity" name="conditions" value="humidity">
+        <label for="humidity">Humidity</label>
+        <input type="text" id="humidity_input" name="humidity_input" placeholder="%"><br>
+        <input type="checkbox" id="light" name="conditions" value="light">
+        <label for="light">Light</label>
+        <input type="text" id="light_input" name="light_input" placeholder="lux"><br>
+        <input type="checkbox" id="pressure" name="conditions" value="pressure">
+        <label for="pressure">Pressure</label>
+        <input type="text" id="pressure_input" name="pressure_input" placeholder="Pa"><br>
+        <input type="checkbox" id="ventilation" name="conditions" value="ventilation">
+        <label for="ventilation">Ventilation</label>
+        <input type="text" id="ventilation_input" name="ventilation_input" placeholder="m³/h"><br><br>
+
+        <label for="configurations">Configurations (e.g. dozen):</label>
+        <select id="configurations" name="configurations" required>
+            <option value="dozen">Dozen</option>
+            <option value="pack">Pack</option>
+            <option value="box">Box</option>
+            <option value="bundle">Bundle</option>
+            <option value="case">Case</option>
+        </select><br><br>
+
+        <label for="features">Choose Features:</label><br>
+        <input type="checkbox" id="tracking" name="features" value="tracking">
+        <label for="tracking">Tracking</label><br>
+        <input type="checkbox" id="qr_code" name="features" value="qr_code">
+        <label for="qr_code">QR Code</label><br>
+        <input type="checkbox" id="nfc" name="features" value="nfc">
+        <label for="nfc">NFC</label><br>
+        <input type="checkbox" id="refrigeration" name="features" value="refrigeration">
+        <label for="refrigeration">Refrigeration</label><br>
+        <input type="checkbox" id="moisture_sensor" name="features" value="moisture_sensor">
+        <label for="moisture_sensor">Moisture Sensor</label><br>
+        <input type="checkbox" id="temperature_sensor" name="features" value="temperature_sensor">
+        <label for="temperature_sensor">Temperature Sensor</label><br>
+        <input type="checkbox" id="freshness_indicator" name="features" value="freshness_indicator">
+        <label for="freshness_indicator">Freshness Indicator</label><br><br>
+
+        <label for="truck_type">Choose Truck Type:</label><br>
+        <input type="radio" id="refrigerated" name="truck_type" value="refrigerated" required>
+        <label for="refrigerated">Refrigerated</label><br>
+        <input type="radio" id="non_refrigerated" name="truck_type" value="non_refrigerated" required>
+        <label for="non_refrigerated">Non-Refrigerated</label><br><br>
+
+        <p>Choose one:</p>
+        <input type="radio" id="cost" name="choice" value="cost" required>
+        <label for="cost">Cost</label><br>
+        <input type="radio" id="sustainability" name="choice" value="sustainability" required>
+        <label for="sustainability">Sustainability</label><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
